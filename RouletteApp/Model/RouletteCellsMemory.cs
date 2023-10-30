@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RouletteApp.model
+namespace RouletteApp.Model
 {
     public sealed class RouletteCellsMemory : IRouletteCellsMemory
     {

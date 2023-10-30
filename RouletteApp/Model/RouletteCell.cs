@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RouletteApp.model
+namespace RouletteApp.Model
 {
-    internal class RouletteCell : IRouletteCell
+    public class RouletteCell : IRouletteCell
     {
         // fields to use 
         private readonly int _id;
         private readonly string _number;
         private readonly string _color;
+        private readonly bool _red;
+        private readonly bool _black;
         private readonly bool _zero;
         private readonly bool _even;
         private readonly bool _odd;
 
         // singleton instance of cells Memory for tracking ids
-        private RouletteCellsMemory cellsMemory = RouletteCellsMemory.Instance;
+        private RouletteCellsMemory _cellsMemory = RouletteCellsMemory.Instance;
 
         public int Id
         {
@@ -32,6 +34,16 @@ namespace RouletteApp.model
         public string Color
         {
             get { return _color; }
+        }
+
+        public bool IsRed
+        {
+            get { return _red; }
+        }
+
+        public bool IsBlack
+        {
+            get { return _black; }
         }
 
         public bool IsZero
@@ -51,9 +63,12 @@ namespace RouletteApp.model
 
         public RouletteCell(string number, string color)
         {
-            _id = GetNewCellId();
+            _id = _cellsMemory.GetNewId();
             _number = number;
             _color = color;
+
+            _red = (_color == "Red" ||  _color == "red");
+            _black = (_color == "Black" || _color == "black");
 
             var n = int.Parse(number);
 
@@ -80,7 +95,7 @@ namespace RouletteApp.model
         // get a new cell id
         private int GetNewCellId()
         {
-            return cellsMemory.GetNewId();
+            return _cellsMemory.GetNewId();
         }
 
         // check if the number is not 0 or 00 (or any other forms of multiple zeros)

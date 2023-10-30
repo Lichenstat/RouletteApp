@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RouletteApp.model
+namespace RouletteApp.Model
 {
     internal interface IRouletteCell
     {
@@ -19,6 +19,10 @@ namespace RouletteApp.model
         // set and get a cells color
         //void SetCellColor(string cellColor);
         string Color { get; }
+
+        // check if the cell is red or back
+        bool IsRed { get; }
+        bool IsBlack { get; }
 
         // get if cell is a zero or not
         bool IsZero { get; }

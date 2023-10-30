@@ -1,4 +1,6 @@
-﻿namespace RouletteApp
+﻿using RouletteApp.Model;
+
+namespace RouletteApp
 {
     internal class Program
     {

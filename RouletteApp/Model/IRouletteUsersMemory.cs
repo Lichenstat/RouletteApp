@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RouletteApp.Model
 {
-    internal interface IRouletteCellsMemory
+    internal interface IRouletteUsersMemory
     {
-        // get new id number that hasn't existed
+        // get a new id for a user
         int GetNewId();
     }
 }
