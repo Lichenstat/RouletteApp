@@ -11,11 +11,6 @@ namespace RouletteApp.Model
         private readonly List<RouletteCell> _tableCells;
         private RouletteCell _spinResult;
 
-        public RouletteCell SpinResult
-        {
-            get { return _spinResult; }
-        }
-
         // classic american roulette table
         public RouletteTable()
         {
@@ -61,12 +56,18 @@ namespace RouletteApp.Model
 
         }
 
+        public RouletteCell SpinResult
+        {
+            get { return _spinResult; }
+        }
+
         // custom roulette table using a uniquely created roulette table
         public RouletteTable(List<RouletteCell> tableCells)
         {
             _tableCells = tableCells;
         }
 
+        // spin the roulette wheel to get a random cell
         public void SpinWheel()
         {
             _spinResult = RouletteWheel.SpinRandomCell(_tableCells);

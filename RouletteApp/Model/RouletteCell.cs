@@ -21,6 +21,37 @@ namespace RouletteApp.Model
         // singleton instance of cells Memory for tracking ids
         private RouletteCellsMemory _cellsMemory = RouletteCellsMemory.Instance;
 
+        public RouletteCell(string number, string color)
+        {
+            _id = _cellsMemory.GetNewId();
+            _number = number;
+            _color = color;
+
+            _red = (_color == "Red" ||  _color == "red");
+            _black = (_color == "Black" || _color == "black");
+
+            var n = int.Parse(number);
+
+            _zero = CheckIfZeros(n);
+
+            if (!_zero)
+            {
+                n = n % 2;
+
+                if (n == 0)
+                {
+                    _even = true;
+                    _odd = false;
+                }
+
+                if (n == 1)
+                {
+                    _even = false;
+                    _odd = true;
+                }
+            }
+        }
+
         public int Id
         {
             get { return _id; }
@@ -59,37 +90,6 @@ namespace RouletteApp.Model
         public bool IsOdd
         {
             get { return _odd; }
-        }
-
-        public RouletteCell(string number, string color)
-        {
-            _id = _cellsMemory.GetNewId();
-            _number = number;
-            _color = color;
-
-            _red = (_color == "Red" ||  _color == "red");
-            _black = (_color == "Black" || _color == "black");
-
-            var n = int.Parse(number);
-
-            _zero = CheckIfZeros(n);
-
-            if (!_zero)
-            {
-                n = n % 2;
-
-                if (n == 0)
-                {
-                    _even = true;
-                    _odd = false;
-                }
-
-                if (n == 1)
-                {
-                    _even = false;
-                    _odd = true;
-                }
-            }
         }
 
         // get a new cell id
