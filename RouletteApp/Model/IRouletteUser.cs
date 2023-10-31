@@ -16,5 +16,6 @@ namespace RouletteApp.Model
 
         // deduct money from the user
         void SubtractMoney(int money);
+
     }
 }

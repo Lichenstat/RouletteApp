@@ -92,11 +92,13 @@ namespace RouletteApp.Model
             get { return _odd; }
         }
 
+        /*
         // get a new cell id
         private int GetNewCellId()
         {
             return _cellsMemory.GetNewId();
         }
+        */
 
         // check if the number is not 0 or 00 (or any other forms of multiple zeros)
         private bool CheckIfZeros(int number)

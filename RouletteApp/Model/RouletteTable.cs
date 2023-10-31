@@ -54,17 +54,18 @@ namespace RouletteApp.Model
             _tableCells.Add(new RouletteCell("35", "Black"));
             _tableCells.Add(new RouletteCell("36", "Red"));
 
-        }
-
-        public RouletteCell SpinResult
-        {
-            get { return _spinResult; }
+            SpinWheel();
         }
 
         // custom roulette table using a uniquely created roulette table
         public RouletteTable(List<RouletteCell> tableCells)
         {
             _tableCells = tableCells;
+        }
+
+        public RouletteCell SpinResult
+        {
+            get { return _spinResult; }
         }
 
         // spin the roulette wheel to get a random cell

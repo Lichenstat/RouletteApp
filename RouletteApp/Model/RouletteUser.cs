@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RouletteApp.Model
 {
-    internal class RouletteUser : IRouletteUser
+    public class RouletteUser : IRouletteUser
     {
         private readonly int _id;
         private int _money;
