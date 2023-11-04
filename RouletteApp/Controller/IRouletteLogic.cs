@@ -9,8 +9,20 @@ namespace RouletteApp.Controller
 {
     internal interface IRouletteLogic
     {
-        // roll for a certain roulette cell
-        void SpinAndBet();
+        // return the user and wagers for the user
+        List<(RouletteUser, RouletteWager)> GetUsersWithWagers { get; }
+
+        // get roulette stats
+        RouletteStats GetRouletteStats { get; }
+
+        // add a user to the game
+        void AddUserToGame(RouletteUser user);
+
+        // remove a user from the game
+        void RemoveUserFromGame(int userId);
+
+        // roll for a certain roulette cell and play the bet
+        void SpinAndCalculateWagers();
 
     }
 }

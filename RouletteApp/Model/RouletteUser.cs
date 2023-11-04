@@ -9,14 +9,26 @@ namespace RouletteApp.Model
     public class RouletteUser : IRouletteUser
     {
         private readonly int _id;
+        private readonly string _name;
         private int _money;
 
         private RouletteUsersMemory _usersMemory = RouletteUsersMemory.Instance;
 
-        public RouletteUser(int money) 
+        public RouletteUser(string name, int money) 
         {
+            _name = name;
             _id = _usersMemory.GetNewId();
             _money = money;
+        }
+
+        public int Id
+        {
+            get { return _id; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
         }
 
         public int MoneyTotal
@@ -29,10 +41,11 @@ namespace RouletteApp.Model
             _money = _money + money;
         }
 
+        /*
         public void SubtractMoney(int money)
         {
             _money = _money - money;
         }
-
+        */
     }
 }

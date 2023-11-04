@@ -1,4 +1,5 @@
-﻿using RouletteApp.Model;
+﻿using RouletteApp.Controller;
+using RouletteApp.Model;
 
 namespace RouletteApp
 {
@@ -6,7 +7,7 @@ namespace RouletteApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //Console.WriteLine("Hello, World!");
         }
     }
 }

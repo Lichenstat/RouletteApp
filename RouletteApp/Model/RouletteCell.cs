@@ -36,7 +36,7 @@ namespace RouletteApp.Model
 
             if (!_zero)
             {
-                n = n % 2;
+                n = Math.Abs(n % 2);
 
                 if (n == 0)
                 {

@@ -13,17 +13,35 @@ namespace RouletteApp.Model
         //        Yes 35-1 (straight), 2-1 (column *labeled as row*), 2-1 (dozen), 1-1 (ood/even, red/black, 1 to 18 & 19 to 36)
         //        Currently wagering is only done in groups or individual cells (odds, reds, 32, 00, etc.)
 
+        // get or set a current cell of the wager
+        RouletteCell CurrentCell { get; set; }
+
+        // total wagered money
+        int WageredMoneyTotal { get; }
+
+        // total returned from wager
+        int WageredReturnedTotal { get; }
+        
+        // round wagered money
+        int WageredMoneyOfRound { get; }
+
+        // round returned money from wager
+        int WageredReturnedOfRound { get; }
+
         // get overall wagers outcomes
-        int OverallWagersOutcome { get; }
+        int WagersOverallProfit { get; }
 
         // get the rounds wagered outcome
-        int RoundWagersOutcome { get; }
+        int WagersRoundProfit { get; }
 
         // reset the overall wagered stats
         void ResetOverallWageredStats();
 
         // reset the round wagered stats
         //void ResetRoundWageredStats();
+
+        // run all the wagers made by the player
+        void RunAllWagers();
 
         // single cell wager (1, 00, etc.)
         void SingleNumber(RouletteCell cell, string number, int money);

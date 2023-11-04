@@ -11,11 +11,17 @@ namespace RouletteApp.Model
         // return total users money
         int MoneyTotal { get; }
 
+        // return user id
+        int Id { get; }
+
+        // return user name
+        string Name { get; }
+
         // add money to the user
         void AddMoney(int money);
 
         // deduct money from the user
-        void SubtractMoney(int money);
+        //void SubtractMoney(int money);
 
     }
 }
