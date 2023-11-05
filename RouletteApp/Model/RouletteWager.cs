@@ -173,7 +173,7 @@ namespace RouletteApp.Model
 
         private void _ThirteenToTwentyfour(RouletteCell cell, int money)
         {
-            int[] grouping = Enumerable.Range(13, 24).ToArray();
+            int[] grouping = Enumerable.Range(13, 12).ToArray();
             int number = int.Parse(cell.Number);
 
             SumWageredMoney(money);
@@ -198,7 +198,7 @@ namespace RouletteApp.Model
 
         private void _TwentyfiveToThirtysix(RouletteCell cell, int money)
         {
-            int[] grouping = Enumerable.Range(25, 36).ToArray();
+            int[] grouping = Enumerable.Range(25, 12).ToArray();
             int number = int.Parse(cell.Number);
 
             SumWageredMoney(money);
@@ -248,7 +248,7 @@ namespace RouletteApp.Model
 
         private void _NineteenToThirtysix(RouletteCell cell, int money)
         {
-            int[] grouping = Enumerable.Range(19, 36).ToArray();
+            int[] grouping = Enumerable.Range(19, 18).ToArray();
             int number = int.Parse(cell.Number);
 
             SumWageredMoney(money);
