@@ -69,6 +69,11 @@ namespace RouletteApp.Model
             get { return _wageredReturnOfRound - _wageredMoneyOfRound; }
         }
 
+        public List<List<Action>> WagerHistory
+        {
+            get { return _wagerHistory; }
+        }
+
         // reset all stats
         public void ResetOverallWageredStats()
         {
@@ -104,7 +109,7 @@ namespace RouletteApp.Model
         {
             ResetRoundWageredStats();
 
-            _wagerHistory.Add(_wagerQueue);
+            _wagerHistory.Add(new List<Action>(_wagerQueue));
 
             foreach(Action action in _wagerQueue)
             {

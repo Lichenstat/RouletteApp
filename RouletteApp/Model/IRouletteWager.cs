@@ -34,6 +34,9 @@ namespace RouletteApp.Model
         // get the rounds wagered outcome
         int WagersRoundProfit { get; }
 
+        // get the wager history
+        List<List<Action>> WagerHistory { get; }
+
         // reset the overall wagered stats
         void ResetOverallWageredStats();
 
