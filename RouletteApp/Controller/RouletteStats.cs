@@ -77,11 +77,12 @@ namespace RouletteApp.Controller
 
                 if (!cell.IsEven)
                 {
-                    if (tempStreak > streak) 
-                    {
-                        streak = tempStreak;
-                    }
                     tempStreak = 0;
+                }
+
+                if (tempStreak > streak)
+                {
+                    streak = tempStreak;
                 }
             }
 
@@ -102,11 +103,12 @@ namespace RouletteApp.Controller
 
                 if (!cell.IsOdd)
                 {
-                    if (tempStreak > streak)
-                    {
-                        streak = tempStreak;
-                    }
                     tempStreak = 0;
+                }
+
+                if (tempStreak > streak)
+                {
+                    streak = tempStreak;
                 }
             }
 
@@ -127,11 +129,12 @@ namespace RouletteApp.Controller
 
                 if (!cell.IsRed)
                 {
-                    if (tempStreak > streak)
-                    {
-                        streak = tempStreak;
-                    }
                     tempStreak = 0;
+                }
+
+                if (tempStreak > streak)
+                {
+                    streak = tempStreak;
                 }
             }
 
@@ -152,11 +155,12 @@ namespace RouletteApp.Controller
 
                 if (!cell.IsBlack)
                 {
-                    if (tempStreak > streak)
-                    {
-                        streak = tempStreak;
-                    }
                     tempStreak = 0;
+                }
+
+                if (tempStreak > streak)
+                {
+                    streak = tempStreak;
                 }
             }
 
@@ -177,11 +181,12 @@ namespace RouletteApp.Controller
 
                 if (!cell.IsZero)
                 {
-                    if (tempStreak > streak)
-                    {
-                        streak = tempStreak;
-                    }
                     tempStreak = 0;
+                }
+
+                if (tempStreak > streak)
+                {
+                    streak = tempStreak;
                 }
             }
 
