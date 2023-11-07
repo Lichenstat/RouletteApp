@@ -54,6 +54,7 @@ namespace RouletteApp.Model
             _tableCells.Add(new RouletteCell("35", "Black"));
             _tableCells.Add(new RouletteCell("36", "Red"));
 
+            //PrintCells();
             SpinWheel();
         }
 
@@ -61,6 +62,24 @@ namespace RouletteApp.Model
         public RouletteTable(List<RouletteCell> tableCells)
         {
             _tableCells = tableCells;
+        }
+
+        // print all cells of the created table
+        private void PrintCells()
+        {
+            foreach (var cell in _tableCells)
+            {
+                Console.WriteLine("Cell Id:     " + cell.Id);
+                Console.WriteLine("Cell Number: " + cell.Number);
+                Console.WriteLine("Cell Color:  " + cell.Color);
+                Console.WriteLine("Cell Zero:   " + cell.IsZero);
+                Console.WriteLine("Cell Even:   " + cell.IsEven);
+                Console.WriteLine("Cell Odd:    " + cell.IsOdd);
+                Console.WriteLine("Cell Red:    " + cell.IsRed);
+                Console.WriteLine("Cell Black:  " + cell.IsBlack);
+                Console.WriteLine("- - - - - - -");
+
+            }
         }
 
         public RouletteCell SpinResult

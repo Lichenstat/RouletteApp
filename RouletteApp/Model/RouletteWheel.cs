@@ -18,8 +18,9 @@ namespace RouletteApp.Model
 
         public static RouletteCell SpinRandomCell(List<RouletteCell> rouletteCells)
         {
-            var maxIndex = rouletteCells.Count - 1;
-            var randomIndex = RandomNumberGenerator.GetInt32(0, maxIndex);
+            var maxIndex = rouletteCells.Count;
+            var randomIndex = RandomNumberGenerator.GetInt32(maxIndex);
+            //var randomIndex = new Random().Next(maxIndex);
 
             return rouletteCells[randomIndex];
         }
