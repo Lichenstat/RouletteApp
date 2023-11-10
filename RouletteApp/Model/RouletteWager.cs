@@ -119,17 +119,18 @@ namespace RouletteApp.Model
             _wagerQueue.Clear();
         }
 
-        public void SingleNumber(string number, int money)
+        // --- Straight
+        public void Straight(string number, int money)
         {
-            _wagerQueue.Add(() => _SingleNumber(_currentCell, number, money));
+            _wagerQueue.Add(() => _Straight(_currentCell, number, money));
         }
 
-        public void SingleNumber(RouletteCell cell, string number, int money)
+        public void Straight(RouletteCell cell, string number, int money)
         {
-            _wagerQueue.Add(() => _SingleNumber(cell, number, money));
+            _wagerQueue.Add(() => _Straight(cell, number, money));
         }
-        
-        private void _SingleNumber(RouletteCell cell, string number, int money)
+
+        private void _Straight(RouletteCell cell, string number, int money)
         {
             SumWageredMoney(money);
 
@@ -141,6 +142,110 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Split
+        public void Split((string number1, string number2) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Split(_currentCell, numbers, money));
+        }
+
+        public void Split(RouletteCell cell, (string number1, string number2) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Split(cell, numbers, money));
+        }
+        
+        private void _Split(RouletteCell cell, (string number1, string number2) numbers, int money)
+        {
+            SumWageredMoney(money);
+
+            if (cell.Number == numbers.number1 || 
+                cell.Number == numbers.number2)
+            {
+                var gain = money * 18;
+
+                SumWageredProfit(gain);
+            }
+        }
+
+        // --- Street
+        public void Street((string number1, string number2, string number3) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Street(_currentCell, numbers, money));
+        }
+
+        public void Street(RouletteCell cell, (string number1, string number2, string number3) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Street(cell, numbers, money));
+        }
+
+        private void _Street(RouletteCell cell, (string number1, string number2, string number3) numbers, int money)
+        {
+            SumWageredMoney(money);
+
+            if (cell.Number == numbers.number1 || 
+                cell.Number == numbers.number2 || 
+                cell.Number == numbers.number3)
+            {
+                var gain = money * 12;
+
+                SumWageredProfit(gain);
+            }
+        }
+
+        // --- Corner
+        public void Corner((string number1, string number2, string number3, string number4) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Corner(_currentCell, numbers, money));
+        }
+
+        public void Corner(RouletteCell cell, (string number1, string number2, string number3, string number4) numbers, int money)
+        {
+            _wagerQueue.Add(() => _Corner(cell, numbers, money));
+        }
+
+        private void _Corner(RouletteCell cell, (string number1, string number2, string number3, string number4) numbers, int money)
+        {
+            SumWageredMoney(money);
+
+            if (cell.Number == numbers.number1 || 
+                cell.Number == numbers.number2 || 
+                cell.Number == numbers.number3 || 
+                cell.Number == numbers.number4)
+            {
+                var gain = money * 9;
+
+                SumWageredProfit(gain);
+            }
+        }
+
+        // --- Six Line
+        public void SixLine((string number1, string number2, string number3, string number4, string number5, string number6) numbers, int money)
+        {
+            _wagerQueue.Add(() => _SixLine(_currentCell, numbers, money));
+        }
+
+        public void SixLine(RouletteCell cell, (string number1, string number2, string number3, string number4, string number5, string number6) numbers, int money)
+        {
+            _wagerQueue.Add(() => _SixLine(cell, numbers, money));
+        }
+
+        private void _SixLine(RouletteCell cell, (string number1, string number2, string number3, string number4, string number5, string number6) numbers, int money)
+        {
+            SumWageredMoney(money);
+
+            if (cell.Number == numbers.number1 || 
+                cell.Number == numbers.number2 || 
+                cell.Number == numbers.number3 || 
+                cell.Number == numbers.number4 || 
+                cell.Number == numbers.number5 || 
+                cell.Number == numbers.number6)
+            {
+                var gain = money * 6;
+
+                SumWageredProfit(gain);
+            }
+        }
+
+        // --- One To Twelve
         public void OneToTwelve(int money)
         {
             _wagerQueue.Add(() => _OneToTwelve(_currentCell, money));
@@ -166,6 +271,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Thirteen To Twentyfour
         public void ThirteenToTwentyfour(int money)
         {
             _wagerQueue.Add(() => _ThirteenToTwentyfour(_currentCell, money));
@@ -191,6 +297,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Twentyfive To Thirtysix
         public void TwentyfiveToThirtysix(int money)
         {
             _wagerQueue.Add(() => _TwentyfiveToThirtysix(_currentCell, money));
@@ -216,6 +323,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- One To Eighteen
         public void OneToEighteen(int money)
         {
             _wagerQueue.Add(() => _OneToEighteen(_currentCell, money));
@@ -241,6 +349,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Ninteen To Thirtysix
         public void NineteenToThirtysix(int money)
         {
             _wagerQueue.Add(() => _NineteenToThirtysix(_currentCell, money));
@@ -266,6 +375,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- First Row
         public void FirstRow(int money)
         {
             _wagerQueue.Add(() => _FirstRow(_currentCell, money));
@@ -291,6 +401,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Second Row
         public void SecondRow(int money)
         {
             _wagerQueue.Add(() => _SecondRow(_currentCell, money));
@@ -316,6 +427,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Third Row
         public void ThirdRow(int money)
         {
             _wagerQueue.Add(() => _ThirdRow(_currentCell, money));
@@ -341,17 +453,18 @@ namespace RouletteApp.Model
             }
         }
 
-        public void EvenNumber(int money)
+        // --- Even Number
+        public void Even(int money)
         {
-            _wagerQueue.Add(() => _EvenNumber(_currentCell, money));
+            _wagerQueue.Add(() => _Even(_currentCell, money));
         }
 
-        public void EvenNumber(RouletteCell cell, int money)
+        public void Even(RouletteCell cell, int money)
         {
-            _wagerQueue.Add(() => _EvenNumber(cell, money));
+            _wagerQueue.Add(() => _Even(cell, money));
         }
 
-        private void _EvenNumber(RouletteCell cell, int money)
+        private void _Even(RouletteCell cell, int money)
         {
             SumWageredMoney(money);
 
@@ -363,17 +476,18 @@ namespace RouletteApp.Model
             }
         }
 
-        public void OddNumber(int money)
+        // --- Odd Number
+        public void Odd(int money)
         {
-            _wagerQueue.Add(() => _OddNumber(_currentCell, money));
+            _wagerQueue.Add(() => _Odd(_currentCell, money));
         }
 
-        public void OddNumber(RouletteCell cell, int money)
+        public void Odd(RouletteCell cell, int money)
         {
-            _wagerQueue.Add(() => _OddNumber(cell, money));
+            _wagerQueue.Add(() => _Odd(cell, money));
         }
 
-        private void _OddNumber(RouletteCell cell, int money)
+        private void _Odd(RouletteCell cell, int money)
         {
             SumWageredMoney(money);
 
@@ -385,6 +499,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Red Color
         public void Red(int money)
         {
             _wagerQueue.Add(() => _Red(_currentCell, money));
@@ -407,6 +522,7 @@ namespace RouletteApp.Model
             }
         }
 
+        // --- Black Color
         public void Black(int money)
         {
             _wagerQueue.Add(() => _Black(_currentCell, money));
@@ -428,5 +544,7 @@ namespace RouletteApp.Model
                 SumWageredProfit(gain);
             }
         }
+
     }
+
 }

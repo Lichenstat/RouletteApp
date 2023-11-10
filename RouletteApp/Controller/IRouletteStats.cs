@@ -11,13 +11,23 @@ namespace RouletteApp.Controller
     {
         void AddCellToHistory(RouletteCell cell);
 
+        List<RouletteCell> History {  get; }
+
         int LongestEvenStreak { get; }
+
+        //int FilteredEvenStreak { get; }
 
         int LongestOddStreak { get; }
 
+        //int FilteredOddStreak { get; }
+
         int LongestRedStreak { get; }
 
+        //int FilteredRedStreak { get; }
+
         int LongestBlackStreak { get; }
+
+        //int FilteredBlackStreak { get; }
 
         int LongestZeroStreak { get; }
 
